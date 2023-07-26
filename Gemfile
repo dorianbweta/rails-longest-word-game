@@ -67,3 +67,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# ADDED MANUALLY
+gem 'open-uri'
+gem 'json'

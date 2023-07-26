@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Result</h1>
+
+  <%# Define three scenarios: %>
+  <%# 1. The word is valid according to the grid AND is an English word %>
+  <% if @valid_word_according_to_grid %>
+    <% if @english_word %>
+      <p>Congratulations! <strong><%=@word.upcase%></strong> is a valid English word!</p>
+    <%# 2. The word is valid according to the grid, but is not a valid English word %>
+    <% else %>
+      <p>Sorry but <strong><%=@word.upcase%></strong> does not seem to be a valid English word...</p>
+    <% end %>
+    <%# 3. The word can’t be built out of the original grid %>
+  <% else %>
+    <p>Sorry but <strong><%=@word.upcase%></strong> can't be built out of <strong><%=@grid%></strong></p>
+  <% end %>
+
+  <%= link_to "Play again", new_path %>
+</div>

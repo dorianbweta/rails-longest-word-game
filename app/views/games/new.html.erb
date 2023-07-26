@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>New game</h1>
+
+  <ul class="letters">
+    <% @letters.each do |letter| %>
+      <li><%= letter %></li>
+    <% end %>
+  </ul>
+
+  <p class="form-prefix">What is the longest word you can find?</p>
+
+  <form action="/score" method="POST" data-turbo="false">
+    <%# Field that is not visible to the user, but is submitted along with the rest of the form.
+    Useful for including additional data in the form submission %>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <div class="input-group">
+      <input type="text" name="word" class="form-control">
+      <input type="submit" value="Play" class="btn btn-primary">
+    </div>
+  </form>
+</div>
